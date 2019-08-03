@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "src/App.js",
   "scripts": {
-    "start": "node src/App.js"
+    "start": "node src/App.js",
+    "test": "node src/App.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
