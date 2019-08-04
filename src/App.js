@@ -1,7 +1,7 @@
 const createError = require('http-errors');
 const Express = require('express');
 const bodyParser = require('body-parser');
-const securitiesRouter = require('./routes/Securities');
+const securitiesRouter = require('./routes/SecuritiesRoute');
 const path = require('path');
 
 
@@ -15,9 +15,7 @@ app.use(bodyParser.json());
 app.use('/api/securities', securitiesRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    next(createError(404));
-});
+app.use((req, res, next) => next(createError(404)));
 
 // error handler
 app.use((err, req, res, next) => {
@@ -29,6 +27,8 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.render('error');
 });
+
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log('App listen port ', port));
